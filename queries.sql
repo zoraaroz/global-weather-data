@@ -14,3 +14,21 @@ AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 49 PRECEDING AND CURRENT ROW) AS 
 FROM city_data
 WHERE city IN ('Berlin')
 GROUP BY year, avg_temp;
+
+SELECT year, avg_temp,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 4 PRECEDING AND CURRENT ROW) AS moving_avg_5,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) AS moving_avg_10,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 19 PRECEDING AND CURRENT ROW) AS moving_avg_20,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 49 PRECEDING AND CURRENT ROW) AS moving_avg_50
+FROM city_data
+WHERE city IN ('London')
+GROUP BY year, avg_temp;
+
+SELECT year, avg_temp,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 4 PRECEDING AND CURRENT ROW) AS moving_avg_5,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) AS moving_avg_10,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 19 PRECEDING AND CURRENT ROW) AS moving_avg_20,
+AVG(avg_temp) OVER (ORDER BY year ROWS BETWEEN 49 PRECEDING AND CURRENT ROW) AS moving_avg_50
+FROM city_data
+WHERE city IN ('Bern')
+GROUP BY year, avg_temp;
